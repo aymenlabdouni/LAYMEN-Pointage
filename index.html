@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAYMEN Pointage</title>
+    
+    <!-- ============================================ -->
+    <!-- CSS CODE (from the CSS editor)               -->
+    <!-- ============================================ -->
+    <style>
+
+    </style>
+    <!-- ============================================ -->
+    
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- HTML CODE (from the HTML editor)             -->
+    <!-- ============================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAYMEN Pointage</title>
+    
+    <!-- ============================================ -->
+    <!-- CSS CODE (from the CSS editor)               -->
+    <!-- ============================================ -->
+    <style>
+
+    </style>
+    <!-- ============================================ -->
+    
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- HTML CODE (from the HTML editor)             -->
+    <!-- ============================================ -->
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LAYMEN Pointage | تقرير التأخر</title>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --success:#16a34a;
+    --danger:#dc2626;
+    --warning:#f59e0b;
+    --dark:#0f172a;
+    --bg:#f1f5f9;
+    --card:#fff;
+    --text:#0f172a;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --shadow:0 12px 35px rgba(15,23,42,.08);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 100% 0,#dbeafe 0,transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,input{
+    font-family:inherit;
+}
+
+.header{
+    background:linear-gradient(135deg,#0f172a,#1e40af);
+    color:#fff;
+    padding:22px;
+    box-shadow:0 5px 25px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    max-width:1450px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#3b82f6,#60a5fa);
+    font-size:27px;
+    font-weight:900;
+    box-shadow:0 8px 25px rgba(59,130,246,.35);
+}
+
+.brand h1{
+    font-size:22px;
+}
+
+.brand p{
+    color:#cbd5e1;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.header-date{
+    color:#dbeafe;
+    font-size:14px;
+}
+
+.container{
+    max-width:1450px;
+    margin:25px auto;
+    padding:0 18px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+}
+
+.title{
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+
+
+.upload{
+   
+   
+    background:linear-gradient(135deg,#eff6ff,#f8fafc);
+    text-align:center;
+   
+    cursor:pointer;
+    transition:.25s;
+}
+
+  
+.upload:hover,
+.upload.drag{
+    background:#dbeafe;
+    border-color:var(--primary);
+    transform:translateY(-2px);
+}
+
+.upload-icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:#dbeafe;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    font-size:32px;
+}
+
+.upload h2{
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.upload p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+#fileInput{
+    display:none;
+}
+
+.file-name{
+    min-height:22px;
+    margin-top:14px;
+    color:var(--success);
+    font-weight:800;
+}
+
+.schedule{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.time-box{
+    padding:14px;
+    border:1px solid var(--border);
+    background:#f8fafc;
+    border-radius:15px;
+}
+
+.time-box label{
+    display:block;
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.time-box input{
+    width:100%;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    text-align:center;
+    font-size:16px;
+    font-weight:800;
+    outline:none;
+}
+
+.time-box input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.btn{
+    border:none;
+    padding:11px 18px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.primary{
+    background:var(--primary);
+    color:white;
+}
+
+.success{
+    background:var(--success);
+    color:white;
+}
+
+.dark{
+    background:var(--dark);
+    color:white;
+}
+
+.light{
+    background:#f1f5f9;
+    color:var(--dark);
+    border:1px solid var(--border);
+}
+
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.info{
+    margin-top:15px;
+    padding:13px 15px;
+    background:#eff6ff;
+    border-right:4px solid var(--primary);
+    border-radius:10px;
+    color:#1e40af;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat{
+    padding:20px;
+    border-radius:18px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+}
+
+.stat:nth-child(1){
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.stat:nth-child(2){
+    background:linear-gradient(135deg,#15803d,#22c55e);
+}
+
+.stat:nth-child(3){
+    background:linear-gradient(135deg,#d97706,#f59e0b);
+}
+
+.stat:nth-child(4){
+    background:linear-gradient(135deg,#b91c1c,#ef4444);
+}
+
+.stat-icon{
+    font-size:25px;
+}
+
+.stat-number{
+    font-size:29px;
+    font-weight:900;
+    margin-top:4px;
+}
+
+.stat-label{
+    font-size:13px;
+    opacity:.9;
+}
+
+.toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.search{
+    position:relative;
+    flex:1;
+    min-width:240px;
+}
+
+.search input{
+    width:100%;
+    padding:12px 40px 12px 14px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    outline:none;
+}
+
+.search span{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.table-wrap{
+    overflow:auto;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+table{
+    width:100%;
+    min-width:1050px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:var(--dark);
+    color:white;
+}
+
+th,td{
+    padding:13px 9px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+    white-space:nowrap;
+}
+
+th{
+    font-size:13px;
+}
+
+td{
+    font-size:13px;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
+}
+
+.name{
+    text-align:right;
+    font-weight:800;
+}
+
+.ok{
+    color:var(--success);
+    font-weight:800;
+}
+
+.late{
+    color:var(--danger);
+    font-weight:900;
+}
+
+.total{
+    display:inline-block;
+    background:#fee2e2;
+    color:#991b1b;
+    padding:6px 10px;
+    border-radius:8px;
+    font-weight:900;
+}
+
+.zero-total{
+    color:var(--success);
+    font-weight:900;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.badge-ok{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.badge-late{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.empty{
+    text-align:center;
+    padding:45px;
+    color:var(--muted);
+}
+
+.empty-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    padding:20px;
+}
+
+.toast{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    background:#0f172a;
+    color:white;
+    padding:14px 18px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transform:translateY(120px);
+    opacity:0;
+    transition:.3s;
+    z-index:99999;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+@media(max-width:900px){
+    .schedule{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:600px){
+    .schedule,
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        padding:0 10px;
+    }
+
+    .card{
+        padding:15px;
+    }
+}
+
+@media print{
+
+    .header{
+        background:#fff!important;
+        color:#000!important;
+        box-shadow:none;
+        border-bottom:2px solid #000;
+    }
+
+    .brand p,
+    .header-date{
+        color:#000!important;
+    }
+
+    .upload-card,
+    .schedule-card,
+    .stats,
+    .toolbar,
+    .actions,
+    .footer{
+        display:none!important;
+    }
+
+    body{
+        background:#fff;
+    }
+
+    .container{
+        max-width:none;
+        margin:10px;
+        padding:0;
+    }
+
+    .card{
+        border:none;
+        box-shadow:none;
+        padding:0;
+    }
+
+    table{
+        min-width:0;
+        font-size:10px;
+    }
+
+    th,td{
+        padding:6px;
+    }
+
+    .total{
+        background:none;
+        color:#000;
+        padding:0;
+    }
+
+    @page{
+        size:A4 landscape;
+        margin:10mm;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+
+    <div class="brand">
+        <div class="logo">L</div>
+
+        <div>
+            <h1>LAYMEN Pointage</h1>
+            <p>حساب التأخر والخروج المبكر للموظفين</p>
+        </div>
+    </div>
+
+    <div class="header-date" id="today"></div>
+
+</div>
+
+
+</header>
+
+<main class="container">
+
+<section class="card upload-card">
+
+
+<div class="title">📂 ملف الحضور</div>
+
+<label class="upload" id="dropArea">
+
+    <div class="upload-icon">📊</div>
+
+    <h2>اختر ملف ZKTeco</h2>
+
+    <p>
+        اضغط هنا لاختيار ملف Excel أو اسحب الملف إلى هذه المنطقة
+    </p>
+
+    <p style="margin-top:6px">
+        XLSX / XLS / CSV
+    </p>
+
+    <input
+        type="file"
+        id="fileInput"
+        accept=".xlsx,.xls,.csv"
+    >
+
+    <div class="file-name" id="fileName"></div>
+
+</label>
+
+<div class="info">
+
+    <b>نظام الحساب:</b><br>
+
+    صباحًا: 08:30 → 11:45<br>
+
+    مساءً: 13:30 → 16:15<br>
+
+    الدخول قبل الموعد لا يعتبر تأخرًا، والخروج بعد الموعد لا يعتبر تأخرًا.
+    <br>
+
+    <b>مثال:</b> دخول الموظف الساعة 13:00 = <b>0 دقيقة تأخر</b>.
+
+</div>
+
+
+</section>
+
+<section class="card schedule-card">
+
+
+<div class="title">⏰ أوقات العمل الرسمية</div>
+
+<div class="schedule">
+
+    <div class="time-box">
+        <label>الدخول صباحًا</label>
+        <input type="time" id="morningIn" value="08:30">
+    </div>
+
+    <div class="time-box">
+        <label>الخروج صباحًا</label>
+        <input type="time" id="morningOut" value="11:45">
+    </div>
+
+    <div class="time-box">
+        <label>الدخول مساءً</label>
+        <input type="time" id="eveningIn" value="13:30">
+    </div>
+
+    <div class="time-box">
+        <label>الخروج مساءً</label>
+        <input type="time" id="eveningOut" value="16:15">
+    </div>
+
+</div>
+
+<div class="actions">
+
+    <button class="btn primary" id="calculateBtn" disabled>
+        ⚙️ حساب التقرير
+    </button>
+
+    <button class="btn success" id="exportBtn" disabled>
+        📥 تحميل Excel
+    </button>
+
+    <button class="btn dark" id="printBtn" disabled>
+        🖨️ طباعة
+    </button>
+
+    <button class="btn light" id="resetBtn">
+        🔄 إعادة ضبط
+    </button>
+
+</div>
+
+
+</section>
+
+<section class="stats">
+
+
+<div class="stat">
+    <div class="stat-icon">👥</div>
+    <div class="stat-number" id="employeeCount">0</div>
+    <div class="stat-label">عدد الموظفين</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">📋</div>
+    <div class="stat-number" id="recordCount">0</div>
+    <div class="stat-label">عدد التسجيلات</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">⏱️</div>
+    <div class="stat-number" id="totalMinutes">0</div>
+    <div class="stat-label">إجمالي دقائق التأخر</div>
+</div>
+
+<div class="stat">
+    <div class="stat-icon">📅</div>
+    <div class="stat-number" id="workDay">—</div>
+    <div class="stat-label">يوم التقرير</div>
+</div>
+
+
+</section>
+
+<section class="card">
+
+
+<div class="toolbar">
+
+    <div class="title" style="margin:0">
+        📋 تقرير الموظفين
+    </div>
+
+    <div class="search">
+        <span>🔎</span>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="ابحث باسم الموظف أو الرقم..."
+        >
+    </div>
+
+</div>
+
+<div class="table-wrap">
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>رقم الموظف</th>
+                <th>اسم الموظف</th>
+                <th>تأخر الدخول صباحًا</th>
+                <th>الخروج المبكر صباحًا</th>
+                <th>تأخر الدخول مساءً</th>
+                <th>الخروج المبكر مساءً</th>
+                <th>مجموع التأخر</th>
+                
+            </tr>
+
+        </thead>
+
+        <tbody id="resultBody">
+
+            <tr>
+                <td colspan="8">
+
+                    <div class="empty">
+
+                        <div class="empty-icon">📊</div>
+
+                        حمّل ملف Excel لعرض التقرير
+
+                    </div>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</section>
+
+</main>
+
+<div class="footer">
+    LAYMEN Pointage © 2026
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let records = [];
+let report = [];
+
+const fileInput = document.getElementById("fileInput");
+const dropArea = document.getElementById("dropArea");
+const fileName = document.getElementById("fileName");
+
+const calculateBtn =
+    document.getElementById("calculateBtn");
+
+const exportBtn =
+    document.getElementById("exportBtn");
+
+const printBtn =
+    document.getElementById("printBtn");
+
+const resetBtn =
+    document.getElementById("resetBtn");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+document.getElementById("today").textContent =
+    new Date().toLocaleDateString("ar-DZ",{
+        weekday:"long",
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+    });
+
+dropArea.addEventListener("click",function(e){
+
+    if(e.target.tagName !== "INPUT"){
+        fileInput.click();
+    }
+
+});
+
+fileInput.addEventListener("change",function(){
+
+    if(this.files[0]){
+        readFile(this.files[0]);
+    }
+
+});
+
+dropArea.addEventListener("dragover",function(e){
+
+    e.preventDefault();
+    dropArea.classList.add("drag");
+
+});
+
+dropArea.addEventListener("dragleave",function(){
+
+    dropArea.classList.remove("drag");
+
+});
+
+dropArea.addEventListener("drop",function(e){
+
+    e.preventDefault();
+
+    dropArea.classList.remove("drag");
+
+    if(e.dataTransfer.files[0]){
+        readFile(e.dataTransfer.files[0]);
+    }
+
+});
+
+async function readFile(file){
+
+    const extension =
+        file.name.split(".").pop().toLowerCase();
+
+    if(!["xlsx","xls","csv"].includes(extension)){
+
+        showToast("❌ الملف غير مدعوم");
+
+        return;
+    }
+
+    fileName.textContent =
+        "📄 " + file.name;
+
+    try{
+
+        const buffer =
+            await file.arrayBuffer();
+
+        const workbook =
+            XLSX.read(buffer,{
+                type:"array",
+                cellDates:true
+            });
+
+        const sheet =
+            workbook.Sheets[workbook.SheetNames[0]];
+
+        const rows =
+            XLSX.utils.sheet_to_json(
+                sheet,
+                {
+                    header:1,
+                    defval:"",
+                    raw:true
+                }
+            );
+
+        records =
+            parseExcelRows(rows);
+
+        if(!records.length){
+
+            throw new Error(
+                "لم يتم العثور على تسجيلات صحيحة"
+            );
+        }
+
+        calculateBtn.disabled = false;
+
+        document.getElementById("recordCount").textContent =
+            records.length;
+
+        showToast(
+            "✅ تم تحميل " +
+            records.length +
+            " تسجيل"
+        );
+
+        calculate();
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "❌ خطأ في قراءة الملف"
+        );
+
+    }
+
+}
+
+function normalize(value){
+
+    return String(value ?? "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g," ")
+        .replace(/[_\-]/g," ");
+}
+
+function findColumns(header){
+
+    const h =
+        header.map(normalize);
+
+    let number = -1;
+    let name = -1;
+    let datetime = -1;
+
+    const numberWords = [
+        "employee number",
+        "employee no",
+        "employee id",
+        "id",
+        "رقم الموظف",
+        "رقم",
+        "matricule",
+        "no"
+    ];
+
+    const nameWords = [
+        "employee name",
+        "name",
+        "employee",
+        "الاسم",
+        "اسم الموظف",
+        "nom",
+        "nom et prénom",
+        "full name"
+    ];
+
+    const dateWords = [
+        "datetime",
+        "date time",
+        "date/time",
+        "dateheure",
+        "date heure",
+        "date",
+        "time",
+        "التاريخ والوقت",
+        "التاريخ",
+        "الوقت",
+        "تاريخ",
+        "وقت",
+        "record time"
+    ];
+
+    h.forEach((value,index)=>{
+
+        if(
+            number === -1 &&
+            numberWords.some(word =>
+                value === normalize(word) ||
+                value.includes(normalize(word))
+            )
+        ){
+            number = index;
+        }
+
+        if(
+            name === -1 &&
+            nameWords.some(word =>
+                value === normalize(word) ||
+                value.includes(normalize(word))
+            )
+        ){
+            name = index;
+        }
+
+        if(
+            datetime === -1 &&
+            dateWords.some(word =>
+                value === normalize(word) ||
+                value.includes(normalize(word))
+            )
+        ){
+            datetime = index;
+        }
+
+    });
+
+    return {
+        number:number === -1 ? 0 : number,
+        name:name === -1 ? 1 : name,
+        datetime:datetime === -1 ? 2 : datetime
+    };
+}
+
+function parseExcelRows(rows){
+
+    if(!rows.length){
+        return [];
+    }
+
+    const columns =
+        findColumns(rows[0]);
+
+    const result = [];
+
+    for(let i=1;i<rows.length;i++){
+
+        const row = rows[i];
+
+        if(!row){
+            continue;
+        }
+
+        const number =
+            String(
+                row[columns.number] ?? ""
+            ).trim();
+
+        const name =
+            String(
+                row[columns.name] ?? ""
+            ).trim();
+
+        const date =
+            parseDate(
+                row[columns.datetime]
+            );
+
+        if(!date){
+            continue;
+        }
+
+        if(!number && !name){
+            continue;
+        }
+
+        result.push({
+            number:number || "—",
+            name:name || "غير معروف",
+            date:date
+        });
+
+    }
+
+    return result;
+}
+
+function parseDate(value){
+
+    if(value instanceof Date && !isNaN(value)){
+        return value;
+    }
+
+    if(typeof value === "number"){
+
+        const d =
+            XLSX.SSF.parse_date_code(value);
+
+        if(d){
+
+            return new Date(
+                d.y,
+                d.m - 1,
+                d.d,
+                d.H || 0,
+                d.M || 0,
+                d.S || 0
+            );
+        }
+    }
+
+    if(typeof value !== "string"){
+        return null;
+    }
+
+    let text =
+        value.trim().replace("T"," ");
+
+    const match =
+        text.match(
+            /^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/
+        );
+
+    if(match){
+
+        let year =
+            parseInt(match[3],10);
+
+        if(year < 100){
+            year += 2000;
+        }
+
+        return new Date(
+            year,
+            parseInt(match[2],10)-1,
+            parseInt(match[1],10),
+            parseInt(match[4],10),
+            parseInt(match[5],10),
+            parseInt(match[6] || 0,10)
+        );
+    }
+
+    const generic =
+        new Date(text);
+
+    return isNaN(generic)
+        ? null
+        : generic;
+}
+
+function dayKey(date){
+
+    return date.getFullYear() +
+        "-" +
+        String(date.getMonth()+1).padStart(2,"0") +
+        "-" +
+        String(date.getDate()).padStart(2,"0");
+
+}
+
+function timeMinutes(value){
+
+    const parts =
+        value.split(":").map(Number);
+
+    return parts[0] * 60 + parts[1];
+}
+
+function punchMinutes(date){
+
+    return date.getHours()*60 +
+        date.getMinutes() +
+        date.getSeconds()/60;
+}
+
+function minutesText(value){
+
+    value =
+        Math.max(0,Math.round(value));
+
+    const hours =
+        Math.floor(value/60);
+
+    const minutes =
+        value % 60;
+
+    if(hours === 0){
+        return minutes + " د";
+    }
+
+    return hours + " س " +
+        minutes + " د";
+}
+
+function calculate(){
+
+    if(!records.length){
+        return;
+    }
+
+    const morningIn =
+        timeMinutes(
+            document.getElementById("morningIn").value
+        );
+
+    const morningOut =
+        timeMinutes(
+            document.getElementById("morningOut").value
+        );
+
+    const eveningIn =
+        timeMinutes(
+            document.getElementById("eveningIn").value
+        );
+
+    const eveningOut =
+        timeMinutes(
+            document.getElementById("eveningOut").value
+        );
+
+    /*
+     * نحدد اليوم من أول تسجيل.
+     */
+    const selectedDay =
+        dayKey(records[0].date);
+
+    const dayRecords =
+        records.filter(
+            r => dayKey(r.date) === selectedDay
+        );
+
+    /*
+     * تجميع الموظفين.
+     */
+    const employees =
+        new Map();
+
+    dayRecords.forEach(record => {
+
+        const key =
+            record.number + "|" + record.name;
+
+        if(!employees.has(key)){
+
+            employees.set(key,{
+                number:record.number,
+                name:record.name,
+                punches:[]
+            });
+
+        }
+
+        employees.get(key).punches.push(record.date);
+
+    });
+
+    report = [];
+
+    employees.forEach(employee => {
+
+        employee.punches.sort(
+            (a,b)=>a-b
+        );
+
+        /*
+         * =====================================================
+         * الفترة الصباحية
+         * =====================================================
+         *
+         * نأخذ البصمات قبل بداية الفترة المسائية.
+         *
+         * أول بصمة = دخول الصباح
+         * آخر بصمة قبل المساء = خروج الصباح
+         */
+        const morningPunches =
+            employee.punches.filter(
+                date =>
+                    punchMinutes(date) < eveningIn
+            );
+
+        /*
+         * =====================================================
+         * الفترة المسائية
+         * =====================================================
+         *
+         * مهم جدًا:
+         *
+         * لا نقول إن كل شيء قبل 13:30 صباح.
+         *
+         * إذا كانت هناك بصمة مثل 13:00 فهي دخول
+         * مسائي مبكر، وبالتالي لا يوجد تأخر.
+         *
+         * لذلك نحدد آخر بصمة صباحية باعتبارها خروج
+         * الصباح، وبعدها تبدأ بصمات المساء.
+         */
+
+        let morningLate = 0;
+        let morningEarly = 0;
+        let eveningLate = 0;
+        let eveningEarly = 0;
+
+        /*
+         * معالجة الصباح.
+         */
+        if(morningPunches.length >= 1){
+
+            const morningEntry =
+                punchMinutes(morningPunches[0]);
+
+            /*
+             * فقط التأخر بعد 08:30 يحسب.
+             */
+            if(morningEntry > morningIn){
+
+                morningLate =
+                    morningEntry - morningIn;
+
+            }
+
+        }
+
+        if(morningPunches.length >= 2){
+
+            const morningExit =
+                punchMinutes(
+                    morningPunches[
+                        morningPunches.length - 1
+                    ]
+                );
+
+            /*
+             * فقط الخروج قبل 11:45 يحسب.
+             */
+            if(morningExit < morningOut){
+
+                morningEarly =
+                    morningOut - morningExit;
+
+            }
+
+        }
+
+        /*
+         * =====================================================
+         * تحديد الدخول المسائي بدقة
+         * =====================================================
+         *
+         * نبحث عن بصمة قريبة من الفترة المسائية.
+         *
+         * إذا وجدنا بصمة بين خروج الصباح و16:15:
+         * فهي يمكن أن تكون دخول المساء.
+         *
+         * الأهم:
+         * 13:00 <= 13:30
+         * لذلك التأخر = 0.
+         */
+
+        let eveningEntry = null;
+        let eveningExit = null;
+
+        /*
+         * نبحث عن أول بصمة بعد خروج الصباح
+         * أو في الفترة التي تلي 11:45.
+         */
+        const possibleEvening =
+            employee.punches.filter(
+                date =>
+                    punchMinutes(date) > morningOut
+            );
+
+        if(possibleEvening.length){
+
+            /*
+             * أول بصمة بعد خروج الصباح هي دخول المساء.
+             *
+             * حتى لو كانت 12:00 أو 13:00 أو 13:29
+             * فهي لا تحمل تأخرًا.
+             */
+            eveningEntry =
+                possibleEvening[0];
+
+            /*
+             * آخر بصمة في اليوم = خروج المساء.
+             */
+            if(possibleEvening.length >= 2){
+
+                eveningExit =
+                    possibleEvening[
+                        possibleEvening.length - 1
+                    ];
+
+            }
+
+        }
+
+        /*
+         * حساب التأخر المسائي.
+         */
+        if(eveningEntry){
+
+            const entry =
+                punchMinutes(eveningEntry);
+
+            if(entry > eveningIn){
+
+                eveningLate =
+                    entry - eveningIn;
+
+            }
+
+        }
+
+        /*
+         * حساب الخروج المبكر المسائي.
+         */
+        if(eveningExit){
+
+            const exit =
+                punchMinutes(eveningExit);
+
+            if(exit < eveningOut){
+
+                eveningEarly =
+                    eveningOut - exit;
+
+            }
+
+        }
+
+        const total =
+            morningLate +
+            morningEarly +
+            eveningLate +
+            eveningEarly;
+
+        report.push({
+
+            number:employee.number,
+            name:employee.name,
+
+            morningLate:morningLate,
+            morningEarly:morningEarly,
+
+            eveningLate:eveningLate,
+            eveningEarly:eveningEarly,
+
+            total:total
+
+        });
+
+    });
+
+    report.sort(
+        (a,b)=>b.total-a.total
+    );
+
+    document.getElementById("employeeCount").textContent =
+        report.length;
+
+    document.getElementById("recordCount").textContent =
+        dayRecords.length;
+
+    document.getElementById("totalMinutes").textContent =
+        Math.round(
+            report.reduce(
+                (sum,row)=>sum+row.total,
+                0
+            )
+        );
+
+    document.getElementById("workDay").textContent =
+        formatDate(dayRecords[0].date);
+
+    render(report);
+
+    exportBtn.disabled = false;
+    printBtn.disabled = false;
+
+    showToast("✅ تم حساب التقرير بدقة");
+
+}
+
+function formatDate(date){
+
+    return String(
+        date.getDate()
+    ).padStart(2,"0") +
+    "/" +
+    String(
+        date.getMonth()+1
+    ).padStart(2,"0") +
+    "/" +
+    date.getFullYear();
+
+}
+
+function render(data){
+
+    const body =
+        document.getElementById("resultBody");
+
+    if(!data.length){
+
+        body.innerHTML = `
+            <tr>
+                <td colspan="8">
+                    <div class="empty">
+                        <div class="empty-icon">🔎</div>
+                        لا توجد نتائج
+                    </div>
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    body.innerHTML =
+        data.map(row=>{
+
+            const delayed =
+                row.total > 0;
+
+            return `
+                <tr>
+
+                    <td>
+                        ${escapeHtml(row.number)}
+                    </td>
+
+                    <td class="name">
+                        ${escapeHtml(row.name)}
+                    </td>
+
+                    <td class="${row.morningLate > 0 ? "late" : "ok"}">
+                        ${minutesText(row.morningLate)}
+                    </td>
+
+                    <td class="${row.morningEarly > 0 ? "late" : "ok"}">
+                        ${minutesText(row.morningEarly)}
+                    </td>
+
+                    <td class="${row.eveningLate > 0 ? "late" : "ok"}">
+                        ${minutesText(row.eveningLate)}
+                    </td>
+
+                    <td class="${row.eveningEarly > 0 ? "late" : "ok"}">
+                        ${minutesText(row.eveningEarly)}
+                    </td>
+
+                    <td>
+                        ${
+                            delayed
+                            ?
+                            `<span class="total">
+                                ${minutesText(row.total)}
+                             </span>`
+                            :
+                            `<span class="zero-total">
+                                0 د
+                             </span>`
+                        }
+                    </td>
+
+                  
+                </tr>
+            `;
+
+        }).join("");
+
+}
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        const q =
+            this.value
+                .trim()
+                .toLowerCase();
+
+        if(!q){
+
+            render(report);
+            return;
+
+        }
+
+        const filtered =
+            report.filter(row =>
+                String(row.number)
+                    .toLowerCase()
+                    .includes(q) ||
+                String(row.name)
+                    .toLowerCase()
+                    .includes(q)
+            );
+
+        render(filtered);
+
+    }
+);
+
+calculateBtn.addEventListener(
+    "click",
+    calculate
+);
+
+document
+    .getElementById("morningIn")
+    .addEventListener("change",calculate);
+
+document
+    .getElementById("morningOut")
+    .addEventListener("change",calculate);
+
+document
+    .getElementById("eveningIn")
+    .addEventListener("change",calculate);
+
+document
+    .getElementById("eveningOut")
+    .addEventListener("change",calculate);
+
+printBtn.addEventListener(
+    "click",
+    function(){
+
+        if(report.length){
+            window.print();
+        }
+
+    }
+);
+
+exportBtn.addEventListener(
+    "click",
+    exportExcel
+);
+
+function exportExcel(){
+
+    if(!report.length){
+
+        showToast("❌ لا يوجد تقرير");
+        return;
+
+    }
+
+    const data =
+        report.map(row=>({
+
+            "رقم الموظف":
+                row.number,
+
+            "اسم الموظف":
+                row.name,
+
+            "تأخر الدخول صباحا":
+                Math.round(row.morningLate),
+
+            "الخروج المبكر صباحا":
+                Math.round(row.morningEarly),
+
+            "تأخر الدخول مساء":
+                Math.round(row.eveningLate),
+
+            "الخروج المبكر مساء":
+                Math.round(row.eveningEarly),
+
+            "مجموع التأخر":
+                Math.round(row.total)
+
+        }));
+
+    const ws =
+        XLSX.utils.json_to_sheet(data);
+
+    ws["!cols"] = [
+        {wch:16},
+        {wch:30},
+        {wch:24},
+        {wch:25},
+        {wch:23},
+        {wch:25},
+        {wch:20}
+    ];
+
+    const wb =
+        XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+        wb,
+        ws,
+        "تقرير التأخر"
+    );
+
+    const day =
+        document
+            .getElementById("workDay")
+            .textContent
+            .replace(/\//g,"-");
+
+    XLSX.writeFile(
+        wb,
+        "LAYMEN_ZKTeco_تقرير_التأخر_" +
+        day +
+        ".xlsx"
+    );
+
+    showToast(
+        "✅ تم تحميل ملف Excel"
+    );
+
+}
+
+resetBtn.addEventListener(
+    "click",
+    function(){
+
+        records = [];
+        report = [];
+
+        fileInput.value = "";
+        fileName.textContent = "";
+
+        searchInput.value = "";
+
+        calculateBtn.disabled = true;
+        exportBtn.disabled = true;
+        printBtn.disabled = true;
+
+        document.getElementById(
+            "employeeCount"
+        ).textContent = "0";
+
+        document.getElementById(
+            "recordCount"
+        ).textContent = "0";
+
+        document.getElementById(
+            "totalMinutes"
+        ).textContent = "0";
+
+        document.getElementById(
+            "workDay"
+        ).textContent = "—";
+
+        document.getElementById(
+            "resultBody"
+        ).innerHTML = `
+            <tr>
+                <td colspan="8">
+                    <div class="empty">
+                        <div class="empty-icon">📊</div>
+                        حمّل ملف Excel لعرض التقرير
+                    </div>
+                </td>
+            </tr>
+        `;
+
+        showToast(
+            "🔄 تم إعادة ضبط البرنامج"
+        );
+
+    }
+);
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+        setTimeout(
+            ()=>{
+                toast.classList.remove("show");
+            },
+            3000
+        );
+
+}
+</script>
+
+</body>
+</html>
+
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT CODE (from the JS editor)         -->
+    <!-- ============================================ -->
+    <script>
+
+    </script>
+    <!-- ============================================ -->
+    
+</body>
+</html>
+    <!-- ============================================ -->
+    
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT CODE (from the JS editor)         -->
+    <!-- ============================================ -->
+    <script>
+
+    </script>
+    <!-- ============================================ -->
+    
+</body>
+</html>
